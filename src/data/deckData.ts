@@ -132,9 +132,9 @@ export const financials2026: FinancialItem[] = [
 ];
 
 export const financials2027: FinancialItem[] = [
-  { label: "Reports", value: 700000 },
-  { label: "Subscriptions", value: 900000 },
-  { label: "Enterprise", value: 400000 }
+  { label: "Pro Reports (700 × $999)", value: 700000 },
+  { label: "Subscriptions (100 × $750/mo × 12mo)", value: 900000 },
+  { label: "Enterprise (4 deals)", value: 400000 }
 ];
 
 export const tractionItems = [
