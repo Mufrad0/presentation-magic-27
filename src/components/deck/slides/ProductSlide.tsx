@@ -1,5 +1,4 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
-import { motion } from "framer-motion";
 import { MapPin, Cpu, Download, FileText, AlertTriangle, Quote, ClipboardList } from "lucide-react";
 
 const steps = [
@@ -24,55 +23,42 @@ export const ProductSlide = () => {
       </SlideTakeaway>
 
       <SlideContent>
-        <div className="space-y-12">
+        <div className="space-y-10">
           {/* Steps */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {steps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 + index * 0.15 }}
-                className="relative"
-              >
+              <div key={step.number} className="relative">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-20 h-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-3xl mb-6">
+                  <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-2xl mb-4">
                     {step.number}
                   </div>
-                  <step.icon className="w-8 h-8 text-primary mb-4" />
-                  <p className="text-lg text-foreground font-medium leading-relaxed">{step.text}</p>
+                  <step.icon className="w-7 h-7 text-primary mb-3" />
+                  <p className="text-base text-foreground font-medium leading-relaxed">{step.text}</p>
                 </div>
                 
                 {/* Arrow connector */}
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-10 -right-4 w-8 h-0.5 bg-border" />
+                  <div className="hidden md:block absolute top-8 -right-4 w-8 h-0.5 bg-border" />
                 )}
-              </motion.div>
+              </div>
             ))}
           </div>
 
           {/* Outputs */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-          >
-            <p className="text-sm text-muted-foreground uppercase tracking-wide mb-6 text-center">Outputs</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {outputs.map((output, index) => (
-                <motion.div
+          <div>
+            <p className="text-sm text-muted-foreground uppercase tracking-wide mb-4 text-center">Outputs</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {outputs.map((output) => (
+                <div
                   key={output.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.7 + index * 0.1 }}
-                  className="bg-card border border-border rounded-2xl p-6 text-center"
+                  className="bg-card border border-border rounded-2xl p-5 text-center"
                 >
-                  <output.icon className="w-10 h-10 text-primary mx-auto mb-4" />
-                  <p className="text-base font-medium text-foreground">{output.label}</p>
-                </motion.div>
+                  <output.icon className="w-8 h-8 text-primary mx-auto mb-3" />
+                  <p className="text-sm font-medium text-foreground">{output.label}</p>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </SlideContent>
     </SlideLayout>
