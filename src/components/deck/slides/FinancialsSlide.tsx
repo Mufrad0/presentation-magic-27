@@ -6,11 +6,11 @@ import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, LabelList } fro
 const chartData = [
   {
     year: "2026E",
-    total: 252500
+    total: 455000
   },
   {
     year: "2027E",
-    total: 1514000
+    total: 2000000
   }
 ];
 
@@ -73,7 +73,7 @@ export const FinancialsSlide = () => {
               ))}
               <div className="border-t border-border pt-1.5 flex justify-between text-xs font-semibold">
                 <span className="text-foreground">Total</span>
-                <span className="text-primary">$252.5K</span>
+                <span className="text-primary">$455K</span>
               </div>
             </div>
           </motion.div>
@@ -95,7 +95,7 @@ export const FinancialsSlide = () => {
               ))}
               <div className="border-t border-border pt-1.5 flex justify-between text-xs font-semibold">
                 <span className="text-foreground">Total</span>
-                <span className="text-primary">$1.514M</span>
+                <span className="text-primary">$2M</span>
               </div>
             </div>
           </motion.div>
