@@ -6,19 +6,19 @@ const cards = [
   {
     icon: Scale,
     title: "Regulation Pressure",
-    stat: "NEPA, CEQA, local ordinances",
+    stat: ["NEPA, CEQA, local ordinances"],
     description: "Demand verified environmental data before construction approval"
   },
   {
     icon: Clock,
     title: "Process Bottleneck",
-    stat: "14–56 days · $15K–$75K",
+    stat: ["14–56 days", "$15K–$75K"],
     description: "Manual reviews are slow and expensive"
   },
   {
     icon: Database,
     title: "Infrastructure Ready",
-    stat: "EPA, FEMA, USGS",
+    stat: ["EPA, FEMA, USGS"],
     description: "Geospatial datasets are now accessible at scale"
   }
 ];
@@ -47,7 +47,11 @@ export const WhyNowSlide = () => {
                   <Icon className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-2">{card.title}</h3>
-                <p className="text-lg font-bold text-primary mb-3">{card.stat}</p>
+                <div className="mb-3">
+                  {card.stat.map((line, i) => (
+                    <p key={i} className="text-lg font-bold text-primary">{line}</p>
+                  ))}
+                </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">{card.description}</p>
               </motion.div>
             );
