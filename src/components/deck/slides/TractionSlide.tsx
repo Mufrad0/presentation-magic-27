@@ -24,22 +24,22 @@ const nextMilestones = [
   {
     icon: Users,
     label: "10 paying customers",
-    timeline: "Q2 2025"
+    timeline: "Q2 2026"
   },
   {
     icon: Rocket,
     label: "Enterprise pilot signed",
-    timeline: "Q3 2025"
+    timeline: "Q3 2026"
   },
   {
     icon: Target,
     label: "$50K MRR",
-    timeline: "Q4 2025"
+    timeline: "Q4 2026"
   },
   {
     icon: Calendar,
     label: "Series A ready",
-    timeline: "Q1 2026"
+    timeline: "Q1 2027"
   }
 ];
 
