@@ -1,0 +1,45 @@
+import { SlideLayout, SlideContent } from "../SlideLayout";
+import { motion } from "framer-motion";
+import { Leaf } from "lucide-react";
+
+export const TitleSlide = () => {
+  return (
+    <SlideLayout className="items-center justify-center text-center bg-gradient-to-br from-background via-background to-accent/20">
+      <SlideContent className="items-center justify-center">
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="mb-8"
+        >
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="w-16 h-16 rounded-xl bg-primary flex items-center justify-center">
+              <Leaf className="w-10 h-10 text-primary-foreground" />
+            </div>
+            <span className="text-5xl md:text-7xl font-bold text-foreground tracking-tight">
+              TerraFox
+            </span>
+          </div>
+        </motion.div>
+        
+        <motion.h2
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          className="text-2xl md:text-3xl lg:text-4xl text-foreground font-medium mb-4"
+        >
+          Instant Environmental Compliance Intelligence
+        </motion.h2>
+        
+        <motion.p
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+          className="text-lg md:text-xl text-muted-foreground"
+        >
+          Pre-Seed · Q1 2026
+        </motion.p>
+      </SlideContent>
+    </SlideLayout>
+  );
+};
