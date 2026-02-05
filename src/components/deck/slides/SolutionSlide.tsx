@@ -5,7 +5,6 @@ const riskLayers = [
   { icon: Droplets, label: "Flood" },
   { icon: Flame, label: "Fire" },
   { icon: TreeDeciduous, label: "Vegetation" },
-  { icon: Droplets, label: "Water" },
   { icon: Mountain, label: "Soil" }
 ];
 
@@ -95,7 +94,7 @@ export const SolutionSlide = () => {
             {/* Compliance Checks */}
             <div>
               <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3 font-medium">Compliance Frameworks</p>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 gap-2">
                 {complianceChecks.map((check) => (
                   <div
                     key={check}
