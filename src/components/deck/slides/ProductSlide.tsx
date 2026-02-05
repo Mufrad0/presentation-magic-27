@@ -1,5 +1,5 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
-import { MapPin, Cpu, Download, FileText, AlertTriangle, Quote, ClipboardList } from "lucide-react";
+import { MapPin, Cpu, Download, FileText, AlertTriangle, Quote, ClipboardList, ArrowRight } from "lucide-react";
 
 const steps = [
   { number: "1", icon: MapPin, text: "Enter site and jurisdiction" },
@@ -23,38 +23,38 @@ export const ProductSlide = () => {
       </SlideTakeaway>
 
       <SlideContent>
-        <div className="space-y-10">
-          {/* Steps */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="space-y-8">
+          {/* Steps with connecting arrows */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
             {steps.map((step, index) => (
-              <div key={step.number} className="relative">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-2xl mb-4">
+              <div key={step.number} className="flex items-center">
+                <div className="flex flex-col items-center text-center w-56">
+                  <div className="w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl mb-3">
                     {step.number}
                   </div>
-                  <step.icon className="w-7 h-7 text-primary mb-3" />
-                  <p className="text-base text-foreground font-medium leading-relaxed">{step.text}</p>
+                  <step.icon className="w-6 h-6 text-primary mb-2" />
+                  <p className="text-sm text-foreground font-medium leading-snug px-2">{step.text}</p>
                 </div>
                 
                 {/* Arrow connector */}
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-8 -right-4 w-8 h-0.5 bg-border" />
+                  <ArrowRight className="hidden md:block w-8 h-8 text-muted-foreground mx-4 flex-shrink-0" />
                 )}
               </div>
             ))}
           </div>
 
           {/* Outputs */}
-          <div>
-            <p className="text-sm text-muted-foreground uppercase tracking-wide mb-4 text-center">Outputs</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="pt-4">
+            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4 text-center font-medium">Outputs</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto">
               {outputs.map((output) => (
                 <div
                   key={output.label}
-                  className="bg-card border border-border rounded-2xl p-5 text-center"
+                  className="bg-card border border-border rounded-xl p-4 text-center hover:border-primary/30 transition-colors"
                 >
-                  <output.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                  <p className="text-sm font-medium text-foreground">{output.label}</p>
+                  <output.icon className="w-7 h-7 text-primary mx-auto mb-2" />
+                  <p className="text-xs font-medium text-foreground">{output.label}</p>
                 </div>
               ))}
             </div>
