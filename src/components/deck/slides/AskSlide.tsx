@@ -28,11 +28,11 @@ export const AskSlide = () => {
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground mb-1">Instrument</p>
-                  <p className="text-sm font-semibold text-foreground">Post-Money SAFE</p>
+                  <p className="text-2xl font-bold text-foreground">Post-Money SAFE</p>
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground mb-1">Valuation Cap</p>
-                  <p className="text-sm font-semibold text-foreground">$3.33M post-money</p>
+                  <p className="text-2xl font-bold text-foreground">$3.33M</p>
                 </div>
               </div>
             </motion.div>
