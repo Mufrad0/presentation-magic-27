@@ -11,8 +11,8 @@ const steps = [
 const outputs = [
   { icon: FileText, label: "Risk summary" },
   { icon: AlertTriangle, label: "Mitigation prompts" },
-  { icon: Quote, label: "Citations and data sources" },
-  { icon: ClipboardList, label: "Permit checklist and timelines" }
+  { icon: Quote, label: "Citations & sources" },
+  { icon: ClipboardList, label: "Permit checklist" }
 ];
 
 export const ProductSlide = () => {
@@ -24,54 +24,56 @@ export const ProductSlide = () => {
       </SlideTakeaway>
 
       <SlideContent>
-        <div className="mb-12">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-0">
+        <div className="space-y-12">
+          {/* Steps */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.15 }}
-                className="flex-1 flex items-center"
+                className="relative"
               >
-                <div className="flex items-center gap-4 flex-1">
-                  <div className="w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl flex-shrink-0">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-20 h-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-3xl mb-6">
                     {step.number}
                   </div>
-                  <div className="flex-1">
-                    <step.icon className="w-5 h-5 text-primary mb-1" />
-                    <p className="text-foreground font-medium">{step.text}</p>
-                  </div>
+                  <step.icon className="w-8 h-8 text-primary mb-4" />
+                  <p className="text-lg text-foreground font-medium leading-relaxed">{step.text}</p>
                 </div>
+                
+                {/* Arrow connector */}
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block w-12 h-0.5 bg-border mx-4" />
+                  <div className="hidden md:block absolute top-10 -right-4 w-8 h-0.5 bg-border" />
                 )}
               </motion.div>
             ))}
           </div>
-        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-        >
-          <p className="text-sm text-muted-foreground uppercase tracking-wide mb-4">Outputs</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {outputs.map((output, index) => (
-              <motion.div
-                key={output.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.7 + index * 0.1 }}
-                className="bg-card border border-border rounded-xl p-4 text-center"
-              >
-                <output.icon className="w-8 h-8 text-primary mx-auto mb-2" />
-                <p className="text-sm font-medium text-foreground">{output.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+          {/* Outputs */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
+            <p className="text-sm text-muted-foreground uppercase tracking-wide mb-6 text-center">Outputs</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {outputs.map((output, index) => (
+                <motion.div
+                  key={output.label}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.7 + index * 0.1 }}
+                  className="bg-card border border-border rounded-2xl p-6 text-center"
+                >
+                  <output.icon className="w-10 h-10 text-primary mx-auto mb-4" />
+                  <p className="text-base font-medium text-foreground">{output.label}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </SlideContent>
     </SlideLayout>
   );

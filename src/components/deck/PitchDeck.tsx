@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import { ProgressBar, SlideIndicator } from "./ProgressBar";
+import { PDFExportButton } from "./PDFExportButton";
 import { TitleSlide } from "./slides/TitleSlide";
 import { TeamSlide } from "./slides/TeamSlide";
 import { WhyNowSlide } from "./slides/WhyNowSlide";
@@ -35,8 +36,15 @@ const slides = [
 
 export const PitchDeck = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const slidesRef = useRef<HTMLDivElement>(null);
 
   const goToSlide = useCallback((index: number) => {
+    if (index >= 0 && index < slides.length) {
+      setCurrentSlide(index);
+    }
+  }, []);
+
+  const goToSlideAsync = useCallback(async (index: number) => {
     if (index >= 0 && index < slides.length) {
       setCurrentSlide(index);
     }
@@ -77,14 +85,14 @@ export const PitchDeck = () => {
   return (
     <div className="relative w-full h-screen bg-background overflow-hidden">
       {/* Slide content */}
-      <div className="w-full h-full">
+      <div ref={slidesRef} className="w-full h-full">
         <AnimatePresence mode="wait">
           <CurrentSlideComponent key={currentSlide} />
         </AnimatePresence>
       </div>
 
       {/* Navigation arrows */}
-      <div className="fixed bottom-4 left-4 flex gap-2 z-50">
+      <div className="fixed bottom-6 left-6 flex gap-2 z-50">
         <Button
           variant="outline"
           size="icon"
@@ -105,12 +113,21 @@ export const PitchDeck = () => {
         </Button>
       </div>
 
+      {/* PDF Export */}
+      <div className="fixed top-6 right-6 z-50">
+        <PDFExportButton 
+          slidesRef={slidesRef} 
+          totalSlides={slides.length} 
+          onSlideChange={goToSlideAsync}
+        />
+      </div>
+
       {/* Progress indicators */}
       <ProgressBar currentSlide={currentSlide} totalSlides={slides.length} />
       <SlideIndicator currentSlide={currentSlide} totalSlides={slides.length} />
 
       {/* Keyboard hints */}
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 text-xs text-muted-foreground z-50">
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 text-xs text-muted-foreground z-50">
         Use ← → arrows or Space to navigate
       </div>
     </div>
