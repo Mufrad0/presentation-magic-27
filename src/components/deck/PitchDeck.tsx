@@ -14,6 +14,8 @@ import { MarketSlide } from "./slides/MarketSlide";
 import { CompetitionSlide } from "./slides/CompetitionSlide";
 import { MoatSlide } from "./slides/MoatSlide";
 import { ValidationGTMSlide } from "./slides/ValidationGTMSlide";
+import { TractionSlide } from "./slides/TractionSlide";
+import { FinancialsSlide } from "./slides/FinancialsSlide";
 import { AskSlide } from "./slides/AskSlide";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -31,6 +33,8 @@ const slides = [
   CompetitionSlide,
   MoatSlide,
   ValidationGTMSlide,
+  TractionSlide,
+  FinancialsSlide,
   AskSlide,
 ];
 
