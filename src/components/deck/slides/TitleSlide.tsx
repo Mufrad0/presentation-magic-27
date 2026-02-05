@@ -1,6 +1,6 @@
 import { SlideLayout, SlideContent } from "../SlideLayout";
 import { motion } from "framer-motion";
-import { Leaf } from "lucide-react";
+import terrafoxLogo from "@/assets/terrafox-logo-black.png";
 
 export const TitleSlide = () => {
   return (
@@ -12,10 +12,8 @@ export const TitleSlide = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="mb-8"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-16 h-16 rounded-xl bg-primary flex items-center justify-center">
-              <Leaf className="w-10 h-10 text-primary-foreground" />
-            </div>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <img src={terrafoxLogo} alt="TerraFox" className="w-16 h-16 md:w-20 md:h-20" />
             <span className="text-5xl md:text-7xl font-bold text-foreground tracking-tight">
               TerraFox
             </span>
