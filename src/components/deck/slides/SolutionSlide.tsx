@@ -1,5 +1,5 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
-import { MapPin, FileCheck, Flame, Droplets, TreeDeciduous, Scale, Mountain } from "lucide-react";
+import { MapPin, FileCheck, Flame, Droplets, TreeDeciduous, Scale, Mountain, Zap, Clock, Shield } from "lucide-react";
 
 const riskLayers = [
   { icon: Droplets, label: "Flood" },
@@ -11,6 +11,12 @@ const riskLayers = [
 
 const complianceChecks = ["CEQA", "NEPA", "Regional Programs"];
 
+const benefits = [
+  { icon: Clock, label: "< 60 seconds" },
+  { icon: Shield, label: "Audit-ready" },
+  { icon: Zap, label: "Fully cited" }
+];
+
 export const SolutionSlide = () => {
   return (
     <SlideLayout>
@@ -20,59 +26,86 @@ export const SolutionSlide = () => {
       </SlideTakeaway>
 
       <SlideContent>
-        <div className="space-y-10">
-          {/* Input/Output row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="flex items-start gap-5">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-7 h-7 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">Input</h3>
-                <p className="text-lg text-muted-foreground">Site address or coordinates, jurisdiction</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* Left: Input → Output flow */}
+          <div className="space-y-6">
+            {/* Input */}
+            <div className="bg-card border border-border rounded-2xl p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Input</p>
+                  <h3 className="text-lg font-semibold text-foreground">Site address + jurisdiction</h3>
+                </div>
               </div>
             </div>
 
-            <div className="flex items-start gap-5">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <FileCheck className="w-7 h-7 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">Output</h3>
-                <p className="text-lg text-muted-foreground">Audit-ready report with citations and regulatory references</p>
+            {/* Arrow */}
+            <div className="flex justify-center">
+              <div className="w-0.5 h-8 bg-primary/30 relative">
+                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-primary/30" />
               </div>
             </div>
-          </div>
 
-          {/* Risk Layers */}
-          <div>
-            <p className="text-sm text-muted-foreground uppercase tracking-wide mb-4">Risk Layers</p>
-            <div className="flex flex-wrap gap-3">
-              {riskLayers.map((layer) => (
-                <span
-                  key={layer.label}
-                  className="flex items-center gap-2 px-4 py-2.5 bg-card border border-border rounded-xl text-base"
-                >
-                  <layer.icon className="w-5 h-5 text-primary" />
-                  {layer.label}
-                </span>
+            {/* Output */}
+            <div className="bg-primary/10 border-2 border-primary rounded-2xl p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                  <FileCheck className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs text-primary uppercase tracking-wide mb-1">Output</p>
+                  <h3 className="text-lg font-semibold text-foreground">Audit-ready compliance report</h3>
+                  <p className="text-sm text-muted-foreground mt-1">With citations, data provenance, and regulatory references</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Benefits row */}
+            <div className="flex gap-3 justify-center">
+              {benefits.map((benefit) => (
+                <div key={benefit.label} className="flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-full">
+                  <benefit.icon className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-medium text-foreground">{benefit.label}</span>
+                </div>
               ))}
             </div>
           </div>
 
-          {/* Compliance Checks */}
-          <div>
-            <p className="text-sm text-muted-foreground uppercase tracking-wide mb-4">Compliance Checks</p>
-            <div className="flex flex-wrap gap-3">
-              {complianceChecks.map((check) => (
-                <span
-                  key={check}
-                  className="flex items-center gap-2 px-4 py-2.5 bg-primary/10 text-primary rounded-xl text-base font-medium"
-                >
-                  <Scale className="w-5 h-5" />
-                  {check}
-                </span>
-              ))}
+          {/* Right: What TerraFox analyzes */}
+          <div className="space-y-6">
+            {/* Risk Layers */}
+            <div>
+              <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3 font-medium">Risk Layers Analyzed</p>
+              <div className="grid grid-cols-2 gap-2">
+                {riskLayers.map((layer) => (
+                  <div
+                    key={layer.label}
+                    className="flex items-center gap-3 px-4 py-3 bg-card border border-border rounded-xl"
+                  >
+                    <layer.icon className="w-5 h-5 text-primary" />
+                    <span className="text-sm font-medium text-foreground">{layer.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Compliance Checks */}
+            <div>
+              <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3 font-medium">Compliance Frameworks</p>
+              <div className="space-y-2">
+                {complianceChecks.map((check) => (
+                  <div
+                    key={check}
+                    className="flex items-center gap-3 px-4 py-3 bg-primary/10 border border-primary/20 rounded-xl"
+                  >
+                    <Scale className="w-5 h-5 text-primary" />
+                    <span className="text-sm font-semibold text-foreground">{check}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
