@@ -26,8 +26,7 @@ interface SlideIndicatorProps {
 }
 
 export const SlideIndicator = ({ currentSlide, totalSlides }: SlideIndicatorProps) => (
-  <div className="fixed bottom-4 right-4 text-sm text-muted-foreground font-mono z-50 text-right">
-    <span>{currentSlide + 1}</span>
-    <span className="block text-xs">/ {totalSlides}</span>
+  <div className="fixed bottom-4 right-4 text-sm text-muted-foreground font-mono z-50">
+    {currentSlide + 1} / {totalSlides}
   </div>
 );
