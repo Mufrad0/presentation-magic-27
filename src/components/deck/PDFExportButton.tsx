@@ -18,6 +18,9 @@ export const PDFExportButton = ({ slidesRef, totalSlides, onSlideChange }: PDFEx
     
     setIsExporting(true);
     
+    // Add class to disable animations
+    document.body.classList.add('pdf-exporting');
+    
     try {
       const pdf = new jsPDF({
         orientation: "landscape",
@@ -25,20 +28,26 @@ export const PDFExportButton = ({ slidesRef, totalSlides, onSlideChange }: PDFEx
         format: [1920, 1080]
       });
 
-      for (let i = 0; i < totalSlides; i++) {
-        await onSlideChange(i);
-        // Wait for animation to complete
-        await new Promise(resolve => setTimeout(resolve, 600));
+      const container = slidesRef.current;
 
-        const canvas = await html2canvas(slidesRef.current, {
+      for (let i = 0; i < totalSlides; i++) {
+        // Change to target slide
+        await onSlideChange(i);
+        
+        // Wait for slide to render (reduced since no animations)
+        await new Promise(resolve => setTimeout(resolve, 300));
+
+        const canvas = await html2canvas(container, {
           scale: 2,
           useCORS: true,
+          allowTaint: true,
           backgroundColor: "#ffffff",
-          width: slidesRef.current.offsetWidth,
-          height: slidesRef.current.offsetHeight
+          width: container.offsetWidth,
+          height: container.offsetHeight,
+          logging: false,
         });
 
-        const imgData = canvas.toDataURL("image/png");
+        const imgData = canvas.toDataURL("image/png", 1.0);
         
         if (i > 0) {
           pdf.addPage();
@@ -47,10 +56,15 @@ export const PDFExportButton = ({ slidesRef, totalSlides, onSlideChange }: PDFEx
         pdf.addImage(imgData, "PNG", 0, 0, 1920, 1080);
       }
 
+      // Return to first slide after export
+      await onSlideChange(0);
+      
       pdf.save("TerraFox-Pitch-Deck.pdf");
     } catch (error) {
       console.error("Error exporting PDF:", error);
     } finally {
+      // Remove the export class
+      document.body.classList.remove('pdf-exporting');
       setIsExporting(false);
     }
   };
