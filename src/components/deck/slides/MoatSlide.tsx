@@ -4,6 +4,13 @@ import { Map, Database, Workflow, Users } from "lucide-react";
 
 const icons = [Map, Database, Workflow, Users];
 
+const flywheelItems = [
+  "More Jurisdictions",
+  "More Users", 
+  "Better Outputs",
+  "More Templates"
+];
+
 export const MoatSlide = () => {
   return (
     <SlideLayout>
@@ -13,45 +20,37 @@ export const MoatSlide = () => {
       </SlideTakeaway>
 
       <SlideContent>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Static Flywheel */}
-          <div className="flex justify-center">
-            <div className="relative w-[280px] h-[280px]">
-              {/* Outer dashed circle */}
-              <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/40" />
-              
-              {/* Inner filled circle */}
-              <div className="absolute inset-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <div className="text-center">
-                  <p className="text-xl font-bold text-primary">Flywheel</p>
-                  <p className="text-sm text-muted-foreground mt-1">More usage → Better outputs</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Static Flywheel - Simplified */}
+          <div className="flex flex-col items-center gap-6">
+            <div className="w-48 h-48 rounded-full bg-primary/10 border-4 border-primary flex items-center justify-center">
+              <div className="text-center px-4">
+                <p className="text-2xl font-bold text-primary">Flywheel</p>
+                <p className="text-sm text-muted-foreground mt-2">More usage → Better outputs</p>
+              </div>
+            </div>
+            
+            {/* Flywheel items as simple list */}
+            <div className="grid grid-cols-2 gap-4">
+              {flywheelItems.map((item) => (
+                <div 
+                  key={item}
+                  className="bg-card border border-border rounded-lg px-4 py-3 text-center"
+                >
+                  <p className="text-sm font-medium text-foreground">{item}</p>
                 </div>
-              </div>
-
-              {/* Labels positioned around the circle */}
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-card px-4 py-2 rounded-full border border-border text-sm font-medium shadow-sm">
-                More Jurisdictions
-              </div>
-              <div className="absolute top-1/2 -right-4 -translate-y-1/2 bg-card px-4 py-2 rounded-full border border-border text-sm font-medium shadow-sm">
-                More Users
-              </div>
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-card px-4 py-2 rounded-full border border-border text-sm font-medium shadow-sm">
-                Better Outputs
-              </div>
-              <div className="absolute top-1/2 -left-4 -translate-y-1/2 bg-card px-4 py-2 rounded-full border border-border text-sm font-medium shadow-sm">
-                More Templates
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* Moat items - 2x2 grid */}
-          <div className="grid grid-cols-1 gap-5">
+          {/* Moat items - vertical stack */}
+          <div className="space-y-4">
             {moatItems.map((item, index) => {
               const Icon = icons[index];
               return (
                 <div
                   key={item.title}
-                  className="flex items-start gap-5 bg-card border border-border rounded-xl p-5"
+                  className="flex items-start gap-4 bg-card border border-border rounded-xl p-5"
                 >
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Icon className="w-6 h-6 text-primary" />
