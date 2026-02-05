@@ -7,6 +7,19 @@ interface SlideLayoutProps {
 }
 
 export const SlideLayout = ({ children, className = "" }: SlideLayoutProps) => {
+  // Check if we're in PDF export mode (set by PDFExportButton)
+  const isExporting = document.body.classList.contains('pdf-exporting');
+  
+  if (isExporting) {
+    return (
+      <div
+        className={`w-full h-full flex flex-col p-10 md:p-14 lg:p-20 ${className}`}
+      >
+        {children}
+      </div>
+    );
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
