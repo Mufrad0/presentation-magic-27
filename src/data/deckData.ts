@@ -126,7 +126,7 @@ export const gtmStages: GTMStage[] = [
 ];
 
 export const financials2026: FinancialItem[] = [
-  { label: "Reports (250 × $499)", value: 125000 },
+  { label: "Pro Reports (125 × $999)", value: 125000 },
   { label: "Subscriptions (25 × $450/mo × 6mo)", value: 67500 },
   { label: "Enterprise (1 deal)", value: 60000 }
 ];
