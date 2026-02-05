@@ -31,27 +31,25 @@ export const WhyNowSlide = () => {
         Regulatory pressure is rising, workflows are broken, and the data infrastructure is finally ready.
       </SlideTakeaway>
 
-      <SlideContent className="flex-1">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-full">
-          {cards.map((card, index) => {
+      <SlideContent>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {cards.map((card) => {
             const Icon = card.icon;
             return (
               <div
                 key={card.title}
-                className="bg-card border border-border rounded-2xl p-10 flex flex-col justify-between h-full"
+                className="bg-card border border-border rounded-2xl p-8"
               >
-                <div>
-                  <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                    <Icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-foreground mb-3">{card.title}</h3>
-                  <div className="mb-4">
-                    {card.stat.map((line, i) => (
-                      <p key={i} className="text-xl font-bold text-primary">{line}</p>
-                    ))}
-                  </div>
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                  <Icon className="w-7 h-7 text-primary" />
                 </div>
-                <p className="text-base text-muted-foreground leading-relaxed">{card.description}</p>
+                <h3 className="text-xl font-semibold text-foreground mb-2">{card.title}</h3>
+                <div className="mb-3">
+                  {card.stat.map((line, i) => (
+                    <p key={i} className="text-lg font-bold text-primary">{line}</p>
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{card.description}</p>
               </div>
             );
           })}
