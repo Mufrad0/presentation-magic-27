@@ -72,19 +72,9 @@ export const quotes: Quote[] = [
     title: "ERM, Air Quality Consultant"
   },
   {
-    text: "Honestly, you read my mind on an issue I have been trying to solve at my job for a while.",
-    author: "Isabella Pinto",
-    title: "Urban Systems Ltd."
-  },
-  {
     text: "Permitting is a hot topic these days, with everyone trying to figure out how to streamline it.",
     author: "Bill Graham",
     title: "CalEPA"
-  },
-  {
-    text: "Workflow automation has been a key part of my business plan. There is far too much busy work in this industry.",
-    author: "Aaron Chee",
-    title: "E2K Engineering"
   },
   {
     text: "I've used phase 1 tools before but finally found a product that works for me as a consultant.",
