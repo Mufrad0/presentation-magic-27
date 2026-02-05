@@ -21,9 +21,9 @@ export const WhyTerraFoxSlide = () => {
           <table className="w-full">
             <thead>
               <tr className="bg-muted">
-                <th className="text-left p-3 font-semibold text-foreground text-sm">Metric</th>
-                <th className="text-left p-3 font-semibold text-muted-foreground text-sm">Traditional</th>
-                <th className="text-left p-3 font-semibold text-primary bg-primary/5 text-sm">TerraFox</th>
+                <th className="text-left p-5 font-semibold text-foreground">Metric</th>
+                <th className="text-left p-5 font-semibold text-muted-foreground">Traditional</th>
+                <th className="text-left p-5 font-semibold text-primary bg-primary/5">TerraFox</th>
               </tr>
             </thead>
             <tbody>
@@ -35,11 +35,11 @@ export const WhyTerraFoxSlide = () => {
                   transition={{ delay: 0.3 + index * 0.1 }}
                   className="border-t border-border"
                 >
-                  <td className="p-3 font-medium text-foreground text-sm">{row.metric}</td>
-                  <td className="p-3 text-muted-foreground text-sm">{row.traditional}</td>
-                  <td className="p-3 bg-primary/5">
-                    <span className="flex items-center gap-2 text-primary font-semibold text-sm">
-                      <CheckCircle2 className="w-4 h-4" />
+                  <td className="p-5 font-medium text-foreground">{row.metric}</td>
+                  <td className="p-5 text-muted-foreground">{row.traditional}</td>
+                  <td className="p-5 bg-primary/5">
+                    <span className="flex items-center gap-2 text-primary font-semibold">
+                      <CheckCircle2 className="w-5 h-5" />
                       {row.terrafox}
                     </span>
                   </td>

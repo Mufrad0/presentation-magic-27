@@ -25,20 +25,22 @@ export const ProductSlide = () => {
       <SlideContent>
         <div className="space-y-8">
           {/* Steps with connecting arrows */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
+          <div className="flex flex-col md:flex-row items-start justify-center gap-4 md:gap-0">
             {steps.map((step, index) => (
-              <div key={step.number} className="flex items-center">
-                <div className="flex flex-col items-center text-center w-56">
-                  <div className="w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl mb-3">
+              <div key={step.number} className="flex items-start">
+                <div className="flex flex-col items-center w-56">
+                  <div className="w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl mb-4">
                     {step.number}
                   </div>
-                  <step.icon className="w-6 h-6 text-primary mb-2" />
-                  <p className="text-sm text-foreground font-medium leading-snug px-2">{step.text}</p>
+                  <div className="flex items-center gap-2 text-center">
+                    <step.icon className="w-5 h-5 text-primary flex-shrink-0" />
+                    <p className="text-sm text-foreground font-medium leading-snug">{step.text}</p>
+                  </div>
                 </div>
                 
                 {/* Arrow connector */}
                 {index < steps.length - 1 && (
-                  <ArrowRight className="hidden md:block w-8 h-8 text-muted-foreground mx-4 flex-shrink-0" />
+                  <ArrowRight className="hidden md:block w-8 h-8 text-muted-foreground mx-4 mt-3 flex-shrink-0" />
                 )}
               </div>
             ))}

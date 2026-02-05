@@ -7,7 +7,7 @@ const icons = [Map, Database, Workflow, Users];
 export const MoatSlide = () => {
   return (
     <SlideLayout>
-      <SlideTitle>Why We Win</SlideTitle>
+      <SlideTitle>Defensibility</SlideTitle>
       <SlideTakeaway>
         Defensibility from jurisdiction logic, reproducible data pipelines, and workflow integration.
       </SlideTakeaway>
