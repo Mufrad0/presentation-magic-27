@@ -1,12 +1,40 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
-import { teamMembers, proofChips } from "@/data/deckData";
+import { proofChips } from "@/data/deckData";
 import { motion } from "framer-motion";
-import { User } from "lucide-react";
+import danielPhoto from "@/assets/team-daniel.png";
+import marrissaPhoto from "@/assets/team-marrissa.png";
+import mufradPhoto from "@/assets/team-mufrad.png";
+import paulPhoto from "@/assets/team-paul.png";
+
+const founders = [
+  {
+    name: "Daniel Guzman",
+    role: "CEO",
+    proof: "Sustainability researcher, geospatial and permitting workflows, product direction",
+    photo: danielPhoto
+  },
+  {
+    name: "Marissa Ponce",
+    role: "COO",
+    proof: "Environmental economics, operations and compliance execution, former Lawrence Berkeley National Laboratory",
+    photo: marrissaPhoto
+  },
+  {
+    name: "Mohammad Mufrad Chowdhury",
+    role: "Co-founder",
+    proof: "Finance, strategy, analytics at London School of Economics, pricing, go to market, fundraising",
+    photo: mufradPhoto
+  }
+];
+
+const advisor = {
+  name: "Paul Bozzo",
+  role: "Advisor",
+  proof: "Startup strategy and fundraising, execution support",
+  photo: paulPhoto
+};
 
 export const TeamSlide = () => {
-  const founders = teamMembers.filter(m => !m.isAdvisor);
-  const advisors = teamMembers.filter(m => m.isAdvisor);
-
   return (
     <SlideLayout>
       <SlideTitle>Team</SlideTitle>
@@ -15,44 +43,46 @@ export const TeamSlide = () => {
       </SlideTakeaway>
 
       <SlideContent>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
           {founders.map((member, index) => (
             <motion.div
               key={member.name}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 + index * 0.1 }}
-              className="bg-card border border-border rounded-xl p-6"
+              className="bg-card border border-border rounded-xl p-5"
             >
-              <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mb-4">
-                <User className="w-8 h-8 text-muted-foreground" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground">{member.name}</h3>
-              <p className="text-primary font-medium mb-2">{member.role}</p>
-              <p className="text-sm text-muted-foreground">{member.proof}</p>
+              <img 
+                src={member.photo} 
+                alt={member.name}
+                className="w-16 h-16 rounded-full object-cover mb-3"
+              />
+              <h3 className="text-lg font-semibold text-foreground">{member.name}</h3>
+              <p className="text-primary font-medium text-sm mb-1">{member.role}</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">{member.proof}</p>
             </motion.div>
           ))}
         </div>
 
-        {advisors.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="mb-8"
-          >
-            <p className="text-sm text-muted-foreground uppercase tracking-wide mb-3">Advisor</p>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center">
-                <User className="w-6 h-6 text-muted-foreground" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground">{advisors[0].name}</h4>
-                <p className="text-sm text-muted-foreground">{advisors[0].proof}</p>
-              </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="mb-6"
+        >
+          <p className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Advisor</p>
+          <div className="flex items-center gap-3">
+            <img 
+              src={advisor.photo} 
+              alt={advisor.name}
+              className="w-12 h-12 rounded-full object-cover"
+            />
+            <div>
+              <h4 className="font-semibold text-foreground text-sm">{advisor.name}</h4>
+              <p className="text-xs text-muted-foreground">{advisor.proof}</p>
             </div>
-          </motion.div>
-        )}
+          </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -63,7 +93,7 @@ export const TeamSlide = () => {
           {proofChips.map((chip, index) => (
             <span
               key={index}
-              className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full"
+              className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full"
             >
               {chip}
             </span>
