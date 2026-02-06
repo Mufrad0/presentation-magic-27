@@ -4,7 +4,7 @@ import { ProgressBar, SlideIndicator } from "./ProgressBar";
 import { PDFExportButton } from "./PDFExportButton";
 import { TitleSlide } from "./slides/TitleSlide";
 import { TeamSlide } from "./slides/TeamSlide";
-import { WhyNowSlide } from "./slides/WhyNowSlide";
+
 import { ProblemSlide } from "./slides/ProblemSlide";
 import { SolutionSlide } from "./slides/SolutionSlide";
 import { ProductSlide } from "./slides/ProductSlide";
@@ -23,7 +23,6 @@ import { Button } from "@/components/ui/button";
 const slides = [
   TitleSlide,
   TeamSlide,
-  WhyNowSlide,
   ProblemSlide,
   SolutionSlide,
   ProductSlide,
