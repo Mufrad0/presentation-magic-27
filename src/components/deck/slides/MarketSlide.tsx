@@ -55,7 +55,7 @@ export const MarketSlide = () => {
               <div className="w-3 h-3 rounded-full bg-primary border border-primary flex-shrink-0 mt-1" />
               <div>
                 <p className="font-semibold text-primary text-sm">SOM: $750M</p>
-                <p className="text-muted-foreground text-xs">CEQA/NEPA-aligned construction & infrastructure screening</p>
+                <p className="text-muted-foreground text-xs">Construction & infrastructure environmental screening</p>
               </div>
             </div>
           </div>
