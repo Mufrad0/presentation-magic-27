@@ -42,7 +42,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: "Mohammad Mufrad Chowdhury",
-    role: "Co-founder",
+    role: "CFO",
     proof: "Finance, strategy, analytics at London School of Economics, pricing, go to market, fundraising"
   },
   {
