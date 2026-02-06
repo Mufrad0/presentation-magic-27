@@ -5,7 +5,7 @@ const advantages = [
   {
     icon: Map,
     title: "Jurisdiction Coverage",
-    text: "80+ cities across US and Canada—and growing. Continuously maintained mapping of state, county, and city requirements into reusable compliance checks."
+    text: "80+ Cities covered across US and Canada, and growing. Continuously maintained mapping of state, county, and city requirements into reusable compliance checks."
   },
   {
     icon: Database,
@@ -15,7 +15,7 @@ const advantages = [
   {
     icon: Workflow,
     title: "Embedded in Delivery",
-    text: "Consultant templates and developer portfolio monitoring fit existing workflows and create switching costs over time."
+    text: "Supports repeat workflows across multiple sites with consistent reports, templates, and portfolio monitoring for developer teams."
   },
   {
     icon: Users,
