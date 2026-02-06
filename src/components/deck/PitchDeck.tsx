@@ -39,7 +39,11 @@ const slides = [
 
 export const PitchDeck = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isExporting, setIsExporting] = useState(false);
   const slidesRef = useRef<HTMLDivElement>(null);
+
+  const handleExportStart = useCallback(() => setIsExporting(true), []);
+  const handleExportEnd = useCallback(() => setIsExporting(false), []);
 
   const goToSlide = useCallback((index: number) => {
     if (index >= 0 && index < slides.length) {
@@ -50,6 +54,11 @@ export const PitchDeck = () => {
   const goToSlideAsync = useCallback(async (index: number) => {
     if (index >= 0 && index < slides.length) {
       setCurrentSlide(index);
+      await new Promise((resolve) => {
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          setTimeout(resolve, 300);
+        }));
+      });
     }
   }, []);
 
@@ -89,9 +98,13 @@ export const PitchDeck = () => {
     <div className="relative w-full h-screen bg-background overflow-hidden">
       {/* Slide content */}
       <div ref={slidesRef} data-pdf-slide-root="true" className="w-full h-full">
-        <AnimatePresence mode="wait">
+        {isExporting ? (
           <CurrentSlideComponent key={currentSlide} />
-        </AnimatePresence>
+        ) : (
+          <AnimatePresence mode="wait">
+            <CurrentSlideComponent key={currentSlide} />
+          </AnimatePresence>
+        )}
       </div>
 
       {/* Navigation arrows */}
@@ -122,6 +135,8 @@ export const PitchDeck = () => {
           slidesRef={slidesRef}
           totalSlides={slides.length}
           onSlideChange={goToSlideAsync}
+          onExportStart={handleExportStart}
+          onExportEnd={handleExportEnd}
         />
       </div>
 
