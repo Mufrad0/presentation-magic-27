@@ -5,7 +5,7 @@ const advantages = [
   {
     icon: Map,
     title: "Jurisdiction Coverage",
-    text: "Continuously maintained mapping of state, county, and city requirements into reusable compliance checks."
+    text: "80+ cities across US and Canada—and growing. Continuously maintained mapping of state, county, and city requirements into reusable compliance checks."
   },
   {
     icon: Database,
