@@ -63,7 +63,7 @@ export const FinancialsSlide = () => {
             transition={{ delay: 0.3 }}
             className="bg-card border border-border rounded-xl p-4"
           >
-            <h3 className="font-semibold text-foreground mb-2 text-sm">2026E Breakdown</h3>
+            <h3 className="font-semibold text-foreground mb-2 text-sm">2026E — <span className="text-primary">$455K</span></h3>
             <div className="space-y-1.5">
               {financials2026.map((item) => (
                 <div key={item.label} className="flex justify-between text-xs">
@@ -85,7 +85,7 @@ export const FinancialsSlide = () => {
             transition={{ delay: 0.4 }}
             className="bg-card border border-border rounded-xl p-4"
           >
-            <h3 className="font-semibold text-foreground mb-2 text-sm">2027E Breakdown</h3>
+            <h3 className="font-semibold text-foreground mb-2 text-sm">2027E — <span className="text-primary">$2M</span></h3>
             <div className="space-y-1.5">
               {financials2027.map((item) => (
                 <div key={item.label} className="flex justify-between text-xs">
