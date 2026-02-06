@@ -31,7 +31,11 @@ export const PricingSlide = () => {
               <h3 className="text-lg font-semibold text-foreground mb-1">{tier.name}</h3>
               <p className="text-3xl font-bold text-primary mb-1">
                 {tier.price}
-                {tier.price !== "Custom" && <span className="text-sm font-normal text-muted-foreground">/site</span>}
+                {tier.price !== "Custom" && (
+                  <span className="text-sm font-normal text-muted-foreground">
+                    {tier.name === "Pro" || tier.name === "Premium" ? "/month" : "/site"}
+                  </span>
+                )}
               </p>
               <p className="text-sm text-muted-foreground">{tier.description}</p>
             </div>
