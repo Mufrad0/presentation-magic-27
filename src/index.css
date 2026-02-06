@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+body.pdf-exporting *,
+body.pdf-exporting *::before,
+body.pdf-exporting *::after {
+  animation-duration: 0s !important;
+  transition-duration: 0s !important;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
