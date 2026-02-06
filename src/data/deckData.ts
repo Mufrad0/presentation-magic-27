@@ -126,17 +126,17 @@ export const gtmStages: GTMStage[] = [
 ];
 
 export const financials2026: FinancialItem[] = [
-  { label: "Basic (500 × $199)", value: 100000 },
-  { label: "Pro (20 × $999/mo × 10mo)", value: 200000 },
-  { label: "Premium (6 × $2,499/mo × 10mo)", value: 150000 },
-  { label: "Enterprise (2 deals)", value: 150000 }
+  { label: "Basic (200 sites × $199)", value: 40000 },
+  { label: "Pro (25 clients × $999/mo × 10 mo)", value: 250000 },
+  { label: "Premium (8 clients × $2,499/mo × 10 mo)", value: 200000 },
+  { label: "Enterprise (2 deals)", value: 130000 }
 ];
 
 export const financials2027: FinancialItem[] = [
-  { label: "Basic (1,000 × $199)", value: 200000 },
-  { label: "Pro (50 × $999/mo × 12mo)", value: 600000 },
-  { label: "Premium (25 × $2,499/mo × 12mo)", value: 750000 },
-  { label: "Enterprise (5 deals)", value: 650000 }
+  { label: "Basic (400 sites × $199)", value: 80000 },
+  { label: "Pro (60 clients × $999/mo × 12 mo)", value: 720000 },
+  { label: "Premium (30 clients × $2,499/mo × 12 mo)", value: 900000 },
+  { label: "Enterprise (5 deals)", value: 400000 }
 ];
 
 export const tractionItems = [

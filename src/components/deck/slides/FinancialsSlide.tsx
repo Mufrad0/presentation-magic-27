@@ -6,11 +6,11 @@ import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, LabelList } fro
 const chartData = [
   {
     year: "2026E",
-    total: 600000
+    total: 620000
   },
   {
     year: "2027E",
-    total: 2200000
+    total: 2100000
   }
 ];
 
@@ -63,7 +63,7 @@ export const FinancialsSlide = () => {
             transition={{ delay: 0.3 }}
             className="bg-card border border-border rounded-xl p-4"
           >
-            <h3 className="font-semibold text-foreground mb-2 text-sm">2026E — <span className="text-primary">$600K</span></h3>
+            <h3 className="font-semibold text-foreground mb-2 text-sm">2026E — <span className="text-primary">$620K</span></h3>
             <div className="space-y-1.5">
               {financials2026.map((item) => (
                 <div key={item.label} className="flex justify-between text-xs">
@@ -73,7 +73,7 @@ export const FinancialsSlide = () => {
               ))}
               <div className="border-t border-border pt-1.5 flex justify-between text-xs font-semibold">
                 <span className="text-foreground">Total</span>
-                <span className="text-primary">$600K</span>
+                <span className="text-primary">$620K</span>
               </div>
             </div>
           </motion.div>
@@ -85,7 +85,7 @@ export const FinancialsSlide = () => {
             transition={{ delay: 0.4 }}
             className="bg-card border border-border rounded-xl p-4"
           >
-            <h3 className="font-semibold text-foreground mb-2 text-sm">2027E — <span className="text-primary">$2.2M</span></h3>
+            <h3 className="font-semibold text-foreground mb-2 text-sm">2027E — <span className="text-primary">$2.1M</span></h3>
             <div className="space-y-1.5">
               {financials2027.map((item) => (
                 <div key={item.label} className="flex justify-between text-xs">
@@ -95,7 +95,7 @@ export const FinancialsSlide = () => {
               ))}
               <div className="border-t border-border pt-1.5 flex justify-between text-xs font-semibold">
                 <span className="text-foreground">Total</span>
-                <span className="text-primary">$2.2M</span>
+                <span className="text-primary">$2.1M</span>
               </div>
             </div>
           </motion.div>
