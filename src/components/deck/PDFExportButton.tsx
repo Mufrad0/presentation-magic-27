@@ -58,28 +58,27 @@ export const PDFExportButton = ({
 
       const container = slidesRef.current;
 
+      // Force start from slide 0 and wait for it to render
+      await onSlideChange(0);
+      await new Promise((r) => setTimeout(r, 500));
+
       for (let i = 0; i < totalSlides; i++) {
         await onSlideChange(i);
+        // Extra wait for slide to fully render
+        await new Promise((r) => setTimeout(r, 400));
 
         const clone = container.cloneNode(true) as HTMLElement;
         clone.style.width = `${EXPORT_WIDTH}px`;
         clone.style.height = `${EXPORT_HEIGHT}px`;
         clone.style.overflow = "hidden";
 
+        // Force ALL elements visible - framer-motion sets inline opacity/transform
         clone.querySelectorAll("*").forEach((el) => {
           const htmlEl = el as HTMLElement;
-          const inlineOpacity = htmlEl.style.opacity;
-          if (inlineOpacity !== "" && inlineOpacity !== "1") {
-            htmlEl.style.opacity = "1";
-          }
-          const inlineTransform = htmlEl.style.transform;
-          if (
-            inlineTransform &&
-            inlineTransform !== "none" &&
-            inlineTransform !== ""
-          ) {
-            htmlEl.style.removeProperty("transform");
-          }
+          htmlEl.style.opacity = "1";
+          htmlEl.style.transform = "none";
+          htmlEl.style.transition = "none";
+          htmlEl.style.animation = "none";
         });
 
         offscreen.innerHTML = "";
