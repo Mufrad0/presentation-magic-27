@@ -8,7 +8,10 @@ const riskLayers = [
   { icon: Mountain, label: "Soil" }
 ];
 
-const complianceChecks = ["CEQA", "NEPA", "Regional Programs"];
+const jurisdictions = {
+  US: ["Municipality", "City", "State", "Federal"],
+  Canada: ["Municipality", "City", "Province", "Federal"]
+};
 
 const benefits = [
   { icon: Clock, label: "< 60 seconds" },
@@ -91,17 +94,24 @@ export const SolutionSlide = () => {
               </div>
             </div>
 
-            {/* Compliance Checks */}
+            {/* Jurisdiction Coverage */}
             <div>
-              <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3 font-medium">Compliance Frameworks</p>
-              <div className="grid grid-cols-2 gap-2">
-                {complianceChecks.map((check) => (
-                  <div
-                    key={check}
-                    className="flex items-center gap-3 px-4 py-3 bg-primary/10 border border-primary/20 rounded-xl"
-                  >
-                    <Scale className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-semibold text-foreground">{check}</span>
+              <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3 font-medium">Jurisdiction Coverage</p>
+              <div className="grid grid-cols-2 gap-4">
+                {Object.entries(jurisdictions).map(([country, levels]) => (
+                  <div key={country} className="space-y-2">
+                    <p className="text-sm font-semibold text-primary">{country}</p>
+                    <div className="space-y-1">
+                      {levels.map((level) => (
+                        <div
+                          key={level}
+                          className="flex items-center gap-2 px-3 py-2 bg-primary/10 border border-primary/20 rounded-lg"
+                        >
+                          <Scale className="w-4 h-4 text-primary" />
+                          <span className="text-xs font-medium text-foreground">{level}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
