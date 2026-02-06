@@ -1,5 +1,5 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
-import { Map, Database, Workflow, Users } from "lucide-react";
+import { Map, Layers, RefreshCw, ShieldCheck } from "lucide-react";
 
 const advantages = [
   {
@@ -8,19 +8,19 @@ const advantages = [
     text: "80+ Cities covered across US and Canada, and growing. Continuously maintained mapping of state, county, and city requirements into reusable compliance checks."
   },
   {
-    icon: Database,
-    title: "Evidence Grade Outputs",
-    text: "Reproducible reports with citations, data provenance, and a clear audit trail that holds up under review."
+    icon: Layers,
+    title: "Multi-Layer Conflict Detection",
+    text: "Our AI checks City, County, State, and Federal rules at the same time, catching conflicts that consultants working through PDFs will miss."
   },
   {
-    icon: Workflow,
-    title: "Embedded in Delivery",
-    text: "Supports repeat workflows across multiple sites with consistent reports, templates, and portfolio monitoring for developer teams."
+    icon: RefreshCw,
+    title: "Real-Time Regulatory Data",
+    text: "Regulations verified from 5 independent sources and updated within 90 days. Competitors use static databases that go stale within months."
   },
   {
-    icon: Users,
-    title: "Repeat Usage Loop",
-    text: "Consultants adopt first, then TerraFox becomes the default tool across recurring client projects and new jurisdictions."
+    icon: ShieldCheck,
+    title: "Audit-Ready Defensibility",
+    text: "Full audit trail with cryptographic verification and exportable evidence chains. Every decision is traceable, making reports bank-ready and court-ready."
   }
 ];
 
