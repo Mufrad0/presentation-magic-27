@@ -45,7 +45,7 @@ export const AskSlide = () => {
             >
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary" />
-                <span className="text-foreground text-sm font-medium">daniel@terrafox.site</span>
+                <span className="text-foreground text-sm font-medium">daniel.guzman@terrafox.site</span>
               </div>
               <div className="flex items-center gap-3">
                 <Globe className="w-5 h-5 text-primary" />
