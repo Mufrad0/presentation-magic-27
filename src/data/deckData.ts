@@ -62,9 +62,9 @@ export const proofChips = [
 
 export const quotes: Quote[] = [
   {
-    text: "This sounds like it could be incredibly helpful!",
-    author: "Kathryn Fronabarger",
-    title: "Compliance Professional"
+    text: "Workflow automation has been a key part of my business plan. There is really far too much busy work in this industry.",
+    author: "Aaron Chee",
+    title: "E2K Engineering"
   },
   {
     text: "It's silly to be charging billable hours for what is essentially just pulling data.",
@@ -72,12 +72,12 @@ export const quotes: Quote[] = [
     title: "ERM, Air Quality Consultant"
   },
   {
-    text: "Permitting is a hot topic these days, with everyone trying to figure out how to streamline it.",
-    author: "Bill Graham",
-    title: "CalEPA"
+    text: "Honestly, you read my mind on an issue I have been trying to solve at my job for a while.",
+    author: "Isabella Pinto",
+    title: "Urban Systems Ltd."
   },
   {
-    text: "I've used phase 1 tools before but finally found a product that works for me as a consultant.",
+    text: "This takes my report process for phase 1 down from 1-2 weeks, down to 3-5 hours.",
     author: "Victor Ladipo",
     title: "21st Century Environmental Consultant Inc."
   }
