@@ -107,25 +107,29 @@ export const PitchDeck = () => {
         )}
       </div>
 
-      {/* Navigation arrows */}
-      <div className="fixed bottom-4 left-4 md:bottom-6 md:left-6 flex gap-2 z-50">
+      {/* Navigation - Mobile: bottom bar, Desktop: corner buttons */}
+      <div className="fixed bottom-0 left-0 right-0 md:bottom-6 md:left-6 md:right-auto flex items-center justify-center gap-4 md:gap-2 z-50 bg-background/95 md:bg-transparent border-t md:border-0 border-border py-3 md:py-0 px-4">
         <Button
           variant="outline"
-          size="icon"
           onClick={prevSlide}
           disabled={currentSlide === 0}
-          className="h-8 w-8 md:h-10 md:w-10"
+          className="h-12 w-12 md:h-10 md:w-10 md:w-auto"
         >
-          <ChevronLeft className="h-4 w-4" />
+          <ChevronLeft className="h-6 w-6 md:h-4 md:w-4" />
         </Button>
+        
+        {/* Mobile slide counter */}
+        <span className="md:hidden text-sm font-medium text-muted-foreground min-w-[60px] text-center">
+          {currentSlide + 1} / {slides.length}
+        </span>
+        
         <Button
           variant="outline"
-          size="icon"
           onClick={nextSlide}
           disabled={currentSlide === slides.length - 1}
-          className="h-8 w-8 md:h-10 md:w-10"
+          className="h-12 w-12 md:h-10 md:w-10 md:w-auto"
         >
-          <ChevronRight className="h-4 w-4" />
+          <ChevronRight className="h-6 w-6 md:h-4 md:w-4" />
         </Button>
       </div>
 
