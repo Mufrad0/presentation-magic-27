@@ -79,6 +79,8 @@ export const PDFExportButton = ({
           htmlEl.style.transform = "none";
           htmlEl.style.transition = "none";
           htmlEl.style.animation = "none";
+          htmlEl.style.wordSpacing = "normal";
+          htmlEl.style.letterSpacing = "normal";
         });
 
         offscreen.innerHTML = "";

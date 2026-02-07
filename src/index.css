@@ -7,6 +7,8 @@ body.pdf-exporting *::before,
 body.pdf-exporting *::after {
   animation-duration: 0s !important;
   transition-duration: 0s !important;
+  word-spacing: normal !important;
+  letter-spacing: normal !important;
 }
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
