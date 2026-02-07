@@ -5,7 +5,7 @@ import terrafoxLogo from "@/assets/terrafox-logo-black.png";
 export const TitleSlide = () => {
   return (
     <SlideLayout className="items-center justify-center text-center bg-gradient-to-br from-background via-background to-accent/20">
-      <SlideContent className="items-center justify-center">
+      <SlideContent className="items-center justify-center w-full">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
