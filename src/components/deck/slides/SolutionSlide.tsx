@@ -1,5 +1,6 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
 import { MapPin, FileCheck, Flame, Droplets, TreeDeciduous, Scale, Mountain, Zap, Clock, Shield } from "lucide-react";
+import { motion } from "framer-motion";
 
 const riskLayers = [
   { icon: Droplets, label: "Flood" },
@@ -32,7 +33,12 @@ export const SolutionSlide = () => {
           {/* Left: Input → Output flow */}
           <div className="space-y-6">
             {/* Input */}
-            <div className="bg-card border border-border rounded-2xl p-6">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+              className="bg-card border border-border rounded-2xl p-6"
+            >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-6 h-6 text-primary" />
@@ -42,17 +48,27 @@ export const SolutionSlide = () => {
                   <h3 className="text-lg font-semibold text-foreground">Site address + jurisdiction</h3>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Arrow */}
-            <div className="flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, scaleY: 0 }}
+              animate={{ opacity: 1, scaleY: 1 }}
+              transition={{ delay: 0.25, duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              className="flex justify-center origin-top"
+            >
               <div className="w-0.5 h-8 bg-primary/30 relative">
                 <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-primary/30" />
               </div>
-            </div>
+            </motion.div>
 
             {/* Output */}
-            <div className="bg-primary/10 border-2 border-primary rounded-2xl p-6">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.35, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+              className="bg-primary/10 border-2 border-primary rounded-2xl p-6"
+            >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
                   <FileCheck className="w-6 h-6 text-primary" />
@@ -63,59 +79,90 @@ export const SolutionSlide = () => {
                   <p className="text-sm text-muted-foreground mt-1">With citations, data provenance, and regulatory references</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Benefits row */}
-            <div className="flex gap-3 justify-center">
-              {benefits.map((benefit) => (
-                <div key={benefit.label} className="flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-full">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+              className="flex gap-3 justify-center"
+            >
+              {benefits.map((benefit, index) => (
+                <motion.div
+                  key={benefit.label}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.55 + index * 0.08, duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                  className="flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-full"
+                >
                   <benefit.icon className="w-4 h-4 text-primary" />
                   <span className="text-sm font-medium text-foreground">{benefit.label}</span>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
 
           {/* Right: What TerraFox analyzes */}
           <div className="space-y-6">
             {/* Risk Layers */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+            >
               <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3 font-medium">Risk Layers Analyzed</p>
               <div className="grid grid-cols-2 gap-2">
-                {riskLayers.map((layer) => (
-                  <div
+                {riskLayers.map((layer, index) => (
+                  <motion.div
                     key={layer.label}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.3 + index * 0.08, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                     className="flex items-center gap-3 px-4 py-3 bg-card border border-border rounded-xl"
                   >
                     <layer.icon className="w-5 h-5 text-primary" />
                     <span className="text-sm font-medium text-foreground">{layer.label}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Jurisdiction Coverage */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+            >
               <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3 font-medium">Jurisdiction Coverage</p>
               <div className="grid grid-cols-2 gap-4">
-                {Object.entries(jurisdictions).map(([country, levels]) => (
-                  <div key={country} className="space-y-2">
+                {Object.entries(jurisdictions).map(([country, levels], countryIndex) => (
+                  <motion.div
+                    key={country}
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.6 + countryIndex * 0.1, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                    className="space-y-2"
+                  >
                     <p className="text-sm font-semibold text-primary">{country}</p>
                     <div className="space-y-1">
-                      {levels.map((level) => (
-                        <div
+                      {levels.map((level, levelIndex) => (
+                        <motion.div
                           key={level}
+                          initial={{ opacity: 0, x: 8 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.65 + countryIndex * 0.1 + levelIndex * 0.05, duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
                           className="flex items-center gap-2 px-3 py-2 bg-primary/10 border border-primary/20 rounded-lg"
                         >
                           <Scale className="w-4 h-4 text-primary" />
                           <span className="text-xs font-medium text-foreground">{level}</span>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </SlideContent>
