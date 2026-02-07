@@ -25,7 +25,7 @@ export const PDFExportButton = ({
 
     const EXPORT_WIDTH = 1440;
     const EXPORT_HEIGHT = 810;
-    const CAPTURE_SCALE = 2;
+    const CAPTURE_SCALE = 1.5;
 
     setIsExporting(true);
     onExportStart?.();
@@ -137,17 +137,17 @@ export const PDFExportButton = ({
           },
         });
 
-        const imgData = canvas.toDataURL("image/png", 1.0);
+        const imgData = canvas.toDataURL("image/jpeg", 0.85);
         if (i > 0) pdf.addPage();
         pdf.addImage(
           imgData,
-          "PNG",
+          "JPEG",
           0,
           0,
           EXPORT_WIDTH,
           EXPORT_HEIGHT,
           undefined,
-          "FAST"
+          "MEDIUM"
         );
       }
 
