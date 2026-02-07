@@ -24,25 +24,29 @@ export const ProductSlide = () => {
 
       <SlideContent>
         <div className="space-y-8">
-          {/* Steps with connecting arrows - all aligned on same line */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0">
+          {/* Steps with connecting arrows - circles aligned on same line */}
+          <div className="flex flex-col md:flex-row items-start justify-center gap-6 md:gap-0">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
-                <div key={step.number} className="flex items-center">
+                <div key={step.number} className="flex flex-col md:flex-row items-center">
                   <div className="flex flex-col items-center w-48 md:w-56">
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg md:text-xl mb-3 md:mb-4">
-                      {step.number}
+                    {/* Circle row */}
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg md:text-xl">
+                        {step.number}
+                      </div>
                     </div>
-                    <div className="flex items-start gap-2 justify-center">
+                    {/* Text below - fixed height container */}
+                    <div className="mt-4 flex items-start gap-2 justify-center min-h-[60px]">
                       <Icon className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                       <p className="text-sm text-foreground font-medium leading-snug text-center">{step.text}</p>
                     </div>
                   </div>
                   
-                  {/* Arrow connector */}
+                  {/* Arrow connector - positioned at circle level */}
                   {index < steps.length - 1 && (
-                    <ArrowRight className="hidden md:block w-8 h-8 text-muted-foreground mx-2 flex-shrink-0" />
+                    <ArrowRight className="hidden md:block w-8 h-8 text-muted-foreground mx-2 flex-shrink-0 -mt-[60px]" />
                   )}
                 </div>
               );
