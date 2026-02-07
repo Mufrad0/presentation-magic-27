@@ -16,9 +16,9 @@ export const AskSlide = () => {
           {/* Left: Investment Terms + Contact */}
           <div className="space-y-4">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.15, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               className="bg-primary/5 border border-primary rounded-xl p-5"
             >
               <div className="grid grid-cols-3 gap-4">
@@ -38,9 +38,9 @@ export const AskSlide = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.25, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               className="bg-accent rounded-xl p-3 md:p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-0"
             >
               <div className="flex items-center gap-2 md:gap-3">
@@ -56,9 +56,9 @@ export const AskSlide = () => {
 
           {/* Right: Use of Funds */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.35, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             className="bg-card border border-border rounded-xl p-5"
           >
             <h3 className="font-semibold text-foreground mb-3 text-sm">Use of Funds</h3>

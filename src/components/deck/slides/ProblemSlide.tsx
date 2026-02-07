@@ -26,9 +26,9 @@ export const ProblemSlide = () => {
 
       <SlideContent>
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-xl text-foreground mb-8"
         >
           Every construction project needs environmental screening and compliance documentation.
@@ -38,9 +38,9 @@ export const ProblemSlide = () => {
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 + index * 0.1 }}
+              initial={{ opacity: 0, scale: 0.95, y: 8 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.2 + index * 0.08, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               className="bg-destructive/10 border border-destructive/20 rounded-xl p-3 md:p-6 text-center"
             >
               <stat.icon className="w-6 h-6 md:w-8 md:h-8 text-destructive mx-auto mb-2 md:mb-3" />
@@ -51,9 +51,9 @@ export const ProblemSlide = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.5, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           className="bg-muted/50 rounded-xl p-6"
         >
           <p className="text-sm text-muted-foreground uppercase tracking-wide mb-3">Today's Workflow</p>
@@ -72,9 +72,9 @@ export const ProblemSlide = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.65, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex items-center gap-3 mt-6 p-4 bg-destructive/5 rounded-lg"
         >
           <AlertTriangle className="w-5 h-5 text-destructive flex-shrink-0" />
