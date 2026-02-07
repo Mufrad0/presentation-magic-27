@@ -108,13 +108,13 @@ export const PitchDeck = () => {
       </div>
 
       {/* Navigation arrows */}
-      <div className="fixed bottom-6 left-6 flex gap-2 z-50">
+      <div className="fixed bottom-4 left-4 md:bottom-6 md:left-6 flex gap-2 z-50">
         <Button
           variant="outline"
           size="icon"
           onClick={prevSlide}
           disabled={currentSlide === 0}
-          className="h-10 w-10"
+          className="h-8 w-8 md:h-10 md:w-10"
         >
           <ChevronLeft className="h-4 w-4" />
         </Button>
@@ -123,14 +123,14 @@ export const PitchDeck = () => {
           size="icon"
           onClick={nextSlide}
           disabled={currentSlide === slides.length - 1}
-          className="h-10 w-10"
+          className="h-8 w-8 md:h-10 md:w-10"
         >
           <ChevronRight className="h-4 w-4" />
         </Button>
       </div>
 
-      {/* PDF Export */}
-      <div className="fixed top-6 right-6 z-50">
+      {/* PDF Export - hidden on mobile */}
+      <div className="hidden md:block fixed top-6 right-6 z-50">
         <PDFExportButton
           slidesRef={slidesRef}
           totalSlides={slides.length}
@@ -144,8 +144,8 @@ export const PitchDeck = () => {
       <ProgressBar currentSlide={currentSlide} totalSlides={slides.length} />
       <SlideIndicator currentSlide={currentSlide} totalSlides={slides.length} />
 
-      {/* Keyboard hints */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 text-xs text-muted-foreground z-50">
+      {/* Keyboard hints - hidden on mobile */}
+      <div className="hidden md:block fixed bottom-6 left-1/2 -translate-x-1/2 text-xs text-muted-foreground z-50">
         Use ← → arrows or Space to navigate
       </div>
     </div>
