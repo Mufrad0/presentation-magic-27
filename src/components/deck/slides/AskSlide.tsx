@@ -41,15 +41,15 @@ export const AskSlide = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-accent rounded-xl p-4 flex items-center justify-between"
+              className="bg-accent rounded-xl p-3 md:p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-0"
             >
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-primary" />
-                <span className="text-foreground text-sm font-medium">daniel.guzman@terrafox.site</span>
+              <div className="flex items-center gap-2 md:gap-3">
+                <Mail className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                <span className="text-foreground text-xs md:text-sm font-medium break-all md:break-normal">daniel.guzman@terrafox.site</span>
               </div>
-              <div className="flex items-center gap-3">
-                <Globe className="w-5 h-5 text-primary" />
-                <span className="text-foreground text-sm font-medium">terrafox.site</span>
+              <div className="flex items-center gap-2 md:gap-3">
+                <Globe className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                <span className="text-foreground text-xs md:text-sm font-medium">terrafox.site</span>
               </div>
             </motion.div>
           </div>

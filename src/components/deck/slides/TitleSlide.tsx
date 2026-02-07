@@ -12,9 +12,9 @@ export const TitleSlide = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="mb-8"
         >
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <img src={terrafoxLogo} alt="TerraFox" className="w-16 h-16 md:w-20 md:h-20" />
-            <span className="text-5xl md:text-7xl font-bold text-foreground tracking-tight">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-6">
+            <img src={terrafoxLogo} alt="TerraFox" className="w-14 h-14 md:w-20 md:h-20" />
+            <span className="text-4xl md:text-7xl font-bold text-foreground tracking-tight text-center">
               TerraFox
             </span>
           </div>

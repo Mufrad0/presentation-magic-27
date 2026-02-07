@@ -34,18 +34,18 @@ export const ProblemSlide = () => {
           Every construction project needs environmental screening and compliance documentation.
         </motion.p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 mb-8">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 + index * 0.1 }}
-              className="bg-destructive/10 border border-destructive/20 rounded-xl p-6 text-center"
+              className="bg-destructive/10 border border-destructive/20 rounded-xl p-3 md:p-6 text-center"
             >
-              <stat.icon className="w-8 h-8 text-destructive mx-auto mb-3" />
-              <p className="text-3xl font-bold text-foreground mb-1">{stat.value}</p>
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
+              <stat.icon className="w-6 h-6 md:w-8 md:h-8 text-destructive mx-auto mb-2 md:mb-3" />
+              <p className="text-xl md:text-3xl font-bold text-foreground mb-1">{stat.value}</p>
+              <p className="text-xs md:text-sm text-muted-foreground">{stat.label}</p>
             </motion.div>
           ))}
         </div>

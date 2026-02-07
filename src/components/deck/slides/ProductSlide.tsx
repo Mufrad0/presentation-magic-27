@@ -25,18 +25,18 @@ export const ProductSlide = () => {
       <SlideContent>
         <div className="space-y-8">
           {/* Steps with connecting arrows */}
-          <div className="flex flex-col md:flex-row items-start justify-center gap-4 md:gap-0">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
-                <div key={step.number} className="flex items-start">
+                <div key={step.number} className="flex items-center md:items-start">
                   <div className="flex flex-col items-center w-56">
-                    <div className="w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl mb-4">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg md:text-xl mb-3 md:mb-4">
                       {step.number}
                     </div>
-                    <div className="flex items-start gap-2">
+                    <div className="flex items-start gap-2 justify-center">
                       <Icon className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <p className="text-sm text-foreground font-medium leading-snug text-left">{step.text}</p>
+                      <p className="text-sm text-foreground font-medium leading-snug text-center md:text-left">{step.text}</p>
                     </div>
                   </div>
                   
