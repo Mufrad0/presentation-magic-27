@@ -1,5 +1,6 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
 import { MapPin, Cpu, Download, FileText, AlertTriangle, Quote, ClipboardList, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const steps = [
   { number: "1", icon: MapPin, text: "Enter site and jurisdiction" },
@@ -29,48 +30,79 @@ export const ProductSlide = () => {
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
-                <div key={step.number} className="flex flex-col md:flex-row items-center">
+                <motion.div
+                  key={step.number}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + index * 0.15, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+                  className="flex flex-col md:flex-row items-center"
+                >
                   <div className="flex flex-col items-center w-48 md:w-56">
                     {/* Circle row */}
                     <div className="flex items-center">
-                      <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg md:text-xl">
+                      <motion.div
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ delay: 0.15 + index * 0.15, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                        className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg md:text-xl"
+                      >
                         {step.number}
-                      </div>
+                      </motion.div>
                     </div>
                     {/* Text below - fixed height container */}
-                    <div className="mt-4 flex items-start gap-2 justify-center min-h-[60px]">
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.25 + index * 0.15, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                      className="mt-4 flex items-start gap-2 justify-center min-h-[60px]"
+                    >
                       <Icon className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                       <p className="text-sm text-foreground font-medium leading-snug text-center">{step.text}</p>
-                    </div>
+                    </motion.div>
                   </div>
                   
                   {/* Arrow connector - positioned at circle level */}
                   {index < steps.length - 1 && (
-                    <ArrowRight className="hidden md:block w-8 h-8 text-muted-foreground mx-2 flex-shrink-0 -mt-[60px]" />
+                    <motion.div
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.3 + index * 0.15, duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                      className="hidden md:block -mt-[60px]"
+                    >
+                      <ArrowRight className="w-8 h-8 text-muted-foreground mx-2 flex-shrink-0" />
+                    </motion.div>
                   )}
-                </div>
+                </motion.div>
               );
             })}
           </div>
 
           {/* Outputs */}
-          <div className="pt-4">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+            className="pt-4"
+          >
             <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4 text-center font-medium">Outputs</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto">
-              {outputs.map((output) => {
+              {outputs.map((output, index) => {
                 const OutputIcon = output.icon;
                 return (
-                  <div
+                  <motion.div
                     key={output.label}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.7 + index * 0.08, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                     className="bg-card border border-border rounded-xl p-4 text-center hover:border-primary/30 transition-colors"
                   >
                     <OutputIcon className="w-7 h-7 text-primary mx-auto mb-2" />
                     <p className="text-xs font-medium text-foreground">{output.label}</p>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
-          </div>
+          </motion.div>
         </div>
       </SlideContent>
     </SlideLayout>
