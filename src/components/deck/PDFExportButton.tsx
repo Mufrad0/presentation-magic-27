@@ -1,9 +1,8 @@
 import { useState } from "react";
-import html2canvas from "html2canvas";
+import html2canvas from "html2canvas-pro";
 import jsPDF from "jspdf";
 import { Button } from "@/components/ui/button";
 import { Download, Loader2 } from "lucide-react";
-
 interface PDFExportButtonProps {
   slidesRef: React.RefObject<HTMLDivElement>;
   totalSlides: number;
