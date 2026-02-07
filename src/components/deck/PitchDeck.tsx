@@ -95,9 +95,9 @@ export const PitchDeck = () => {
   const CurrentSlideComponent = slides[currentSlide];
 
   return (
-    <div className="relative w-full h-screen bg-background overflow-hidden">
+    <div className="relative w-full min-h-screen md:h-screen bg-background overflow-y-auto md:overflow-hidden">
       {/* Slide content */}
-      <div ref={slidesRef} data-pdf-slide-root="true" className="w-full h-full">
+      <div ref={slidesRef} data-pdf-slide-root="true" className="w-full min-h-screen md:h-full pb-20 md:pb-0">
         {isExporting ? (
           <CurrentSlideComponent key={currentSlide} />
         ) : (
