@@ -80,14 +80,6 @@ export const PDFExportButton = ({
           htmlEl.style.transform = "none";
           htmlEl.style.transition = "none";
           htmlEl.style.animation = "none";
-          htmlEl.style.wordSpacing = "0.25em";
-          htmlEl.style.letterSpacing = "0em";
-          htmlEl.style.fontKerning = "none";
-          htmlEl.style.textRendering = "geometricPrecision";
-          // Remove tracking-tight which causes html2canvas to collapse spaces
-          if (htmlEl.classList.contains("tracking-tight")) {
-            htmlEl.style.letterSpacing = "0em";
-          }
         });
 
         offscreen.innerHTML = "";
@@ -123,18 +115,6 @@ export const PDFExportButton = ({
           backgroundColor: "#ffffff",
           imageTimeout: 15000,
           logging: false,
-          onclone: (clonedDoc) => {
-            // Additional fix: force text spacing on the cloned document html2canvas uses internally
-            clonedDoc.querySelectorAll("*").forEach((el) => {
-              const htmlEl = el as HTMLElement;
-              if (htmlEl.style) {
-                htmlEl.style.wordSpacing = "0.25em";
-                htmlEl.style.letterSpacing = "0em";
-                htmlEl.style.fontKerning = "none";
-                htmlEl.style.textRendering = "geometricPrecision";
-              }
-            });
-          },
         });
 
         const imgData = canvas.toDataURL("image/jpeg", 0.85);
