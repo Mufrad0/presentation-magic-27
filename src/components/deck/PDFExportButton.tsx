@@ -3,12 +3,53 @@ import html2canvas from "html2canvas-pro";
 import jsPDF from "jspdf";
 import { Button } from "@/components/ui/button";
 import { Download, Loader2 } from "lucide-react";
+
 interface PDFExportButtonProps {
   slidesRef: React.RefObject<HTMLDivElement>;
   totalSlides: number;
   onSlideChange: (index: number) => Promise<void>;
   onExportStart?: () => void;
   onExportEnd?: () => void;
+}
+
+/**
+ * Walk a DOM node and replace every text node's words with
+ * individual <span> elements so html2canvas positions each word
+ * using the box model instead of broken character-level measurement.
+ */
+function wrapWordsInSpans(el: HTMLElement) {
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+  const textNodes: Text[] = [];
+  let node: Text | null;
+  while ((node = walker.nextNode() as Text | null)) {
+    if (node.textContent && node.textContent.trim().length > 0) {
+      textNodes.push(node);
+    }
+  }
+  for (const textNode of textNodes) {
+    const text = textNode.textContent || "";
+    const parts = text.split(/(\s+)/); // keep whitespace as separators
+    if (parts.length <= 1) continue;
+
+    const frag = document.createDocumentFragment();
+    for (const part of parts) {
+      if (/^\s+$/.test(part)) {
+        const spacer = document.createElement("span");
+        spacer.style.display = "inline";
+        spacer.style.width = "0.3em";
+        spacer.style.minWidth = "0.3em";
+        spacer.innerHTML = "&nbsp;";
+        frag.appendChild(spacer);
+      } else if (part.length > 0) {
+        const span = document.createElement("span");
+        span.style.whiteSpace = "nowrap";
+        span.style.display = "inline";
+        span.textContent = part;
+        frag.appendChild(span);
+      }
+    }
+    textNode.parentNode?.replaceChild(frag, textNode);
+  }
 }
 
 export const PDFExportButton = ({
@@ -33,7 +74,6 @@ export const PDFExportButton = ({
 
     try {
       await (document as any).fonts?.ready?.catch(() => undefined);
-      // Extra wait for fonts to fully load and render
       await new Promise((r) => setTimeout(r, 300));
 
       const pdf = new jsPDF({
@@ -59,13 +99,11 @@ export const PDFExportButton = ({
 
       const container = slidesRef.current;
 
-      // Force start from slide 0 and wait for it to render
       await onSlideChange(0);
       await new Promise((r) => setTimeout(r, 500));
 
       for (let i = 0; i < totalSlides; i++) {
         await onSlideChange(i);
-        // Extra wait for slide to fully render
         await new Promise((r) => setTimeout(r, 400));
 
         const clone = container.cloneNode(true) as HTMLElement;
@@ -80,6 +118,13 @@ export const PDFExportButton = ({
           htmlEl.style.transform = "none";
           htmlEl.style.transition = "none";
           htmlEl.style.animation = "none";
+        });
+
+        // Fix subtitle text: find SlideTakeaway elements by their unique class
+        // combination and replace text nodes with span-wrapped words so
+        // html2canvas uses box-model positioning instead of broken text measurement
+        clone.querySelectorAll(".max-w-4xl.mb-10").forEach((el) => {
+          wrapWordsInSpans(el as HTMLElement);
         });
 
         offscreen.innerHTML = "";
