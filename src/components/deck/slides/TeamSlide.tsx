@@ -41,7 +41,7 @@ export const TeamSlide = () => {
     <SlideLayout>
       <SlideTitle>Team</SlideTitle>
       <SlideTakeaway>
-        Product engineering + compliance execution + go-to-market strategy in one founding team.
+        Product engineering, compliance execution, and go-to-market, one founding team.
       </SlideTakeaway>
 
       <SlideContent>
