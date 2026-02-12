@@ -21,7 +21,7 @@ const founders = [
     role: "COO, Operations & Compliance Execution",
     bullets: [
       "Environmental Economics and Policy and Sustainable Environmental Design, triple major at UC Berkeley",
-      "UI/UX, manages evidence capture, QA, audit-ready process"
+      "Manages UI/UX, evidence capture, QA, audit-ready process"
     ],
     photo: marrissaPhoto
   },
