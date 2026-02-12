@@ -11,7 +11,7 @@ const founders = [
     name: "Daniel Guzman",
     role: "CEO, Product & Geospatial Automation",
     bullets: [
-      "UC Berkeley, geospatial research & sustainability workflows",
+      "Former Earth System Science and Geospatial Representation Research Assistant at UC Berkeley",
       "Manages permitting workflow design and automation roadmap"
     ],
     photo: danielPhoto
