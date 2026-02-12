@@ -2,49 +2,76 @@ import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLa
 import { proofChips } from "@/data/deckData";
 import { motion } from "framer-motion";
 import { deckTransition, getStaggerDelay } from "../animations";
+import { MapPin, FileCheck, DollarSign, Users } from "lucide-react";
 import danielPhoto from "@/assets/team-daniel.png";
 import marrissaPhoto from "@/assets/team-marrissa.png";
 import mufradPhoto from "@/assets/team-mufrad.png";
 import paulPhoto from "@/assets/team-paul.png";
+import terrafoxLogoBlack from "@/assets/terrafox-logo-black.png";
+import terrafoxLogoGreen from "@/assets/terrafox-logo-green.png";
 
 const founders = [
   {
     name: "Daniel Guzman",
-    role: "CEO",
-    proof: "Sustainability researcher, geospatial and permitting workflows, product direction",
+    role: "CEO, Product & Geospatial Automation",
+    bullets: [
+      "UC Berkeley, geospatial research & sustainability workflows",
+      "Owns permitting workflow design and automation roadmap"
+    ],
     photo: danielPhoto
   },
   {
     name: "Marissa Ponce",
-    role: "COO",
-    proof: "Environmental economics, operations and compliance execution, former Lawrence Berkeley National Laboratory",
+    role: "COO, Operations & Compliance Execution",
+    bullets: [
+      "Environmental economics & compliance ops, Lawrence Berkeley National Laboratory",
+      "Owns evidence capture, QA, audit-ready process"
+    ],
     photo: marrissaPhoto
   },
   {
     name: "Mohammad Mufrad Chowdhury",
-    role: "CFO",
-    proof: "Finance, strategy, analytics at London School of Economics, pricing, go to market, fundraising",
+    role: "Co-founder, Finance, Pricing & GTM",
+    bullets: [
+      "Economics & Statistics, London School of Economics",
+      "Owns pricing, fundraising, partnerships, distribution"
+    ],
     photo: mufradPhoto
   }
 ];
 
-const advisor = {
-  name: "Paul Bozzo",
-  role: "Advisor",
-  proof: "Startup strategy and fundraising, execution support",
-  photo: paulPhoto
-};
+const coverageChips = [
+  { label: "Jurisdictions & permitting workflows", icon: MapPin },
+  { label: "Evidence, citations, audit readiness", icon: FileCheck },
+  { label: "Pricing & packaging", icon: DollarSign },
+  { label: "Distribution & partnerships", icon: Users },
+];
 
 export const TeamSlide = () => {
   return (
     <SlideLayout>
-      <SlideTitle>Team</SlideTitle>
-      <SlideTakeaway>
-        Domain, geospatial automation, and finance plus go-to-market execution in one founding team.
-      </SlideTakeaway>
+      {/* Header with logos */}
+      <div className="flex items-start justify-between">
+        <div>
+          <SlideTitle>Team</SlideTitle>
+          <SlideTakeaway>
+            Built across geospatial workflows, environmental compliance execution, and pricing-led go-to-market.
+          </SlideTakeaway>
+        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, ...deckTransition }}
+          className="hidden md:flex items-center gap-3 shrink-0 mt-2"
+        >
+          <img src={terrafoxLogoBlack} alt="TerraFox" className="h-8 w-8 opacity-60" />
+          <img src={terrafoxLogoGreen} alt="TerraFox" className="h-8 w-8 opacity-60" />
+        </motion.div>
+      </div>
 
       <SlideContent>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        {/* Founder cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
           {founders.map((member, index) => (
             <motion.div
               key={member.name}
@@ -53,52 +80,63 @@ export const TeamSlide = () => {
               transition={{ delay: getStaggerDelay(index, 0.2), ...deckTransition }}
               className="bg-card border border-border rounded-xl p-5"
             >
-              <img 
-                src={member.photo} 
+              <img
+                src={member.photo}
                 alt={member.name}
-                className="w-16 h-16 rounded-full object-cover mb-3"
+                className="w-14 h-14 rounded-full object-cover mb-3"
               />
-              <h3 className="text-lg font-semibold text-foreground">{member.name}</h3>
-              <p className="text-primary font-medium text-sm mb-1">{member.role}</p>
-              <p className="text-xs text-muted-foreground leading-relaxed">{member.proof}</p>
+              <h3 className="text-base font-semibold text-foreground">{member.name}</h3>
+              <p className="text-primary font-medium text-xs mb-3">{member.role}</p>
+              <ul className="space-y-1.5">
+                {member.bullets.map((bullet, i) => (
+                  <li key={i} className="text-xs text-muted-foreground leading-relaxed flex items-start gap-1.5">
+                    <span className="text-primary mt-0.5 shrink-0">•</span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>
 
+        {/* Advisor strip */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55, ...deckTransition }}
-          className="mb-6"
+          className="flex items-center gap-3 px-4 py-2.5 bg-muted/50 rounded-lg border border-border mb-5"
         >
-          <p className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Advisor</p>
-          <div className="flex items-center gap-3">
-            <img 
-              src={advisor.photo} 
-              alt={advisor.name}
-              className="w-12 h-12 rounded-full object-cover"
-            />
-            <div>
-              <h4 className="font-semibold text-foreground text-sm">{advisor.name}</h4>
-              <p className="text-xs text-muted-foreground">{advisor.proof}</p>
-            </div>
-          </div>
+          <img
+            src={paulPhoto}
+            alt="Paul Bozzo"
+            className="w-9 h-9 rounded-full object-cover shrink-0"
+          />
+          <p className="text-sm text-foreground">
+            <span className="text-muted-foreground">Advisor:</span>{" "}
+            <span className="font-medium">Paul Bozzo</span>
+            <span className="text-muted-foreground"> · Startup strategy & fundraising, Tech Futures Group</span>
+          </p>
         </motion.div>
 
+        {/* Coverage chips */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.65, ...deckTransition }}
           className="flex flex-wrap gap-2"
         >
-          {proofChips.map((chip, index) => (
-            <span
-              key={index}
-              className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full"
-            >
-              {chip}
-            </span>
-          ))}
+          {coverageChips.map((chip, index) => {
+            const Icon = chip.icon;
+            return (
+              <span
+                key={index}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 text-primary text-xs rounded-full"
+              >
+                <Icon className="w-3.5 h-3.5" />
+                {chip.label}
+              </span>
+            );
+          })}
         </motion.div>
       </SlideContent>
     </SlideLayout>
