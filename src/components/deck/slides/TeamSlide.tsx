@@ -41,7 +41,7 @@ export const TeamSlide = () => {
     <SlideLayout>
       <SlideTitle>Team</SlideTitle>
       <SlideTakeaway>
-        Built across geospatial workflows, environmental compliance execution, and pricing-led go-to-market.
+        Product engineering + compliance execution + go-to-market strategy in one founding team.
       </SlideTakeaway>
 
       <SlideContent>
