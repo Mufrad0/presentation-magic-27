@@ -20,7 +20,7 @@ const founders = [
     name: "Marissa Ponce",
     role: "COO, Operations & Compliance Execution",
     bullets: [
-      "Environmental economics & compliance ops, Lawrence Berkeley National Laboratory",
+      "Environmental Economics and Policy, and Sustainable Environmental Design Triple Major at UC Berkeley",
       "Manages evidence capture, QA, audit-ready process"
     ],
     photo: marrissaPhoto
