@@ -20,7 +20,7 @@ const founders = [
     name: "Marissa Ponce",
     role: "COO, Operations & Compliance Execution",
     bullets: [
-      "Environmental Economics and Policy, and Sustainable Environmental Design Triple Major at UC Berkeley",
+      "Environmental Economics and Policy and Sustainable Environmental Design, triple major at UC Berkeley",
       "Manages evidence capture, QA, audit-ready process"
     ],
     photo: marrissaPhoto
@@ -90,7 +90,8 @@ export const TeamSlide = () => {
             />
             <div>
               <h4 className="font-semibold text-foreground text-sm">Paul Bozzo</h4>
-              <p className="text-xs text-muted-foreground">Startup strategy and fundraising, execution support</p>
+              <p className="text-xs text-muted-foreground">25+ years in startup strategy and fundraising</p>
+              <p className="text-xs text-muted-foreground">Supports fundraising narrative and GTM execution, reaching 20K MRR</p>
             </div>
           </div>
         </motion.div>
