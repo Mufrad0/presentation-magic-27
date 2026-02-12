@@ -1,5 +1,4 @@
 import { SlideLayout, SlideTitle, SlideTakeaway, SlideContent } from "../SlideLayout";
-import { proofChips } from "@/data/deckData";
 import { motion } from "framer-motion";
 import { deckTransition, getStaggerDelay } from "../animations";
 import danielPhoto from "@/assets/team-daniel.png";
@@ -96,22 +95,6 @@ export const TeamSlide = () => {
           </div>
         </motion.div>
 
-        {/* Proof chips - original style */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.65, ...deckTransition }}
-          className="flex flex-wrap gap-2"
-        >
-          {proofChips.map((chip, index) => (
-            <span
-              key={index}
-              className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full"
-            >
-              {chip}
-            </span>
-          ))}
-        </motion.div>
       </SlideContent>
     </SlideLayout>
   );
