@@ -12,7 +12,7 @@ const founders = [
     role: "CEO, Product & Geospatial Automation",
     bullets: [
       "UC Berkeley, geospatial research & sustainability workflows",
-      "Owns permitting workflow design and automation roadmap"
+      "Manages permitting workflow design and automation roadmap"
     ],
     photo: danielPhoto
   },
@@ -21,7 +21,7 @@ const founders = [
     role: "COO, Operations & Compliance Execution",
     bullets: [
       "Environmental economics & compliance ops, Lawrence Berkeley National Laboratory",
-      "Owns evidence capture, QA, audit-ready process"
+      "Manages evidence capture, QA, audit-ready process"
     ],
     photo: marrissaPhoto
   },
@@ -30,7 +30,7 @@ const founders = [
     role: "Co-founder, Finance, Pricing & GTM",
     bullets: [
       "Economics & Statistics, London School of Economics; Grinnell College",
-      "Owns pricing, fundraising, partnerships, distribution"
+      "Manages pricing, fundraising, partnerships, distribution"
     ],
     photo: mufradPhoto
   }
