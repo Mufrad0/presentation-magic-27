@@ -91,7 +91,7 @@ export const TeamSlide = () => {
             <div className="flex-1">
               <h4 className="font-semibold text-foreground text-sm">Paul Bozzo</h4>
               <p className="text-xs text-primary font-medium mt-0.5">25+ years in startup strategy and fundraising</p>
-              <p className="text-xs text-muted-foreground mt-0.5">Supports fundraising narrative and GTM execution, reaching 20K MRR</p>
+              <p className="text-xs text-muted-foreground mt-0.5">Supports fundraising narrative and go-to-market execution toward $20K MRR</p>
             </div>
           </div>
         </motion.div>
